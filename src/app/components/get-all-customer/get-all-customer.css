@@ -1,0 +1,103 @@
+.customer-list-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.btn-new {
+  background: #4cafef;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.btn-new:hover {
+  background: #3793cf;
+}
+
+.customer-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.customer-table th,
+.customer-table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.customer-table th {
+  background: #f5f7fa;
+  font-weight: 600;
+  color: #444;
+}
+
+.customer-table tr:hover {
+  background: #f9fcff;
+}
+
+.action-col {
+  text-align: center;
+  width: 160px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-edit,
+.btn-delete {
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-edit {
+  background: #ffc107;
+  color: #333;
+}
+.btn-edit:hover {
+  background: #e0a800;
+  color: white;
+}
+
+.btn-delete {
+  background: #f44336;
+  color: white;
+}
+.btn-delete:hover {
+  background: #d32f2f;
+}
+
+.no-data {
+  text-align: center;
+  padding: 1rem;
+  color: #777;
+  font-style: italic;
+}

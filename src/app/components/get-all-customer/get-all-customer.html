@@ -1,0 +1,33 @@
+<div class="customer-list-container">
+  <div class="header">
+    <h2>Customer List</h2>
+    <button class="btn-new" routerLink="/customer">➕ Add New Customer</button>
+  </div>
+
+  <table class="customer-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th class="action-col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers$ | async">
+        <td>{{ customer.id }}</td>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.phone }}</td>
+        <td class="actions">
+          <button class="btn-edit">✏️ Edit</button>
+          <button class="btn-delete">🗑️ Delete</button>
+        </td>
+      </tr>
+      <tr *ngIf="(customers$ | async)?.length === 0">
+        <td colspan="5" class="no-data">No customers found.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
