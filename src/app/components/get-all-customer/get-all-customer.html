@@ -21,8 +21,8 @@
         <td>{{ customer.email }}</td>
         <td>{{ customer.phone }}</td>
         <td class="actions">
-          <button class="btn-edit">✏️ Edit</button>
-          <button class="btn-delete">🗑️ Delete</button>
+          <button class="btn-edit" (click)="editCustomer(customer)">✏️ Edit</button>
+          <button class="btn-delete" (click)="deleteCustomer(customer.id)">🗑️ Delete</button>
         </td>
       </tr>
       <tr *ngIf="(customers$ | async)?.length === 0">

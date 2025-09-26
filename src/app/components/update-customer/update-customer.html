@@ -1,6 +1,6 @@
 <div class="edit-card">
   <h2>Edit Customer</h2>
-  <form>
+  <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">Name:</label>
       <input type="text" id="name" formControlName="name" placeholder="Enter Name" />
@@ -14,8 +14,10 @@
       <input type="text" id="phone" formControlName="phone" placeholder="Enter Phone Number" />
     </div>
     <div class="form-actions">
-      <!-- <button type="button" class="btn-update" (click)="updateCustomer()">Update</button>
-      <button type="button" class="btn-cancel" (click)="cancel()">Cancel</button> -->
+      <button type="submit" class="btn-update" [disabled]="customerForm.invalid">Update</button>
+      <button type="button" class="btn-cancel" (click)="router.navigate(['/customers'])">
+        Cancel
+      </button>
     </div>
   </form>
 </div>

@@ -61,4 +61,39 @@ export class CustomerService {
         }
       });
   }
+
+  /** Update Customer */
+  updateCustomer(id: any, updated: Customer): Observable<Customer> {
+    const current = this.allCustomers$.value;
+
+    return this.http.patch<Customer>(`${BASE_URL}/customer/${id}`, updated).pipe(
+      tap((savedCustomer) => {
+        const updatedList = current.map((c) => (c.id === id ? savedCustomer : c));
+        this.allCustomers$.next(updatedList);
+      }),
+      catchError((err) => {
+        console.error('Failed to update customer', err);
+        this.allCustomers$.next(current); // rollback
+        return of(null as any);
+      })
+    );
+  }
+
+  getCustomerById(id: any): Observable<Customer> {
+    return this.http.get<Customer>(`${BASE_URL}/customer/${id}`);
+  }
+
+  deleteCustomer(id: any): Observable<void> {
+    return this.http.delete<void>(`${BASE_URL}/customer/${id}`).pipe(
+      tap(() => {
+        const current = this.allCustomers$.value;
+        const updated = current.filter((c) => c.id !== id);
+        this.allCustomers$.next(updated);
+      }),
+      catchError((err) => {
+        console.error('Failed to delete customer', err);
+        return of();
+      })
+    );
+  }
 }
